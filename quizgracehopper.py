@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Configuração inicial
+# ---------------- CONFIGURAÇÃO INICIAL ----------------
 st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
 
 # Inicialização do estado
@@ -11,7 +11,7 @@ if "pagina" not in st.session_state:
     st.session_state.mostrar_resultado = False
     st.session_state.acertou = False
 
-# Banco de questões
+# ---------------- BANCO DE QUESTÕES ----------------
 questoes = [
     {"pergunta": "A importância de Grace Hopper está relacionada principalmente ao fato de ela ter:",
      "opcoes": {"a": "Desenvolvido componentes físicos dos computadores modernos.",
@@ -79,12 +79,16 @@ questoes = [
 if st.session_state.pagina == "inicio":
     st.title("GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA")
     st.write("Seja bem-vindo ao quiz!")
-    st.write("Grace Hopper foi uma das figuras mais importantes da história da informática, destacando-se como cientista da computação, oficial da Marinha dos Estados Unidos e uma das principais responsáveis por transformar a forma como os computadores passaram a ser programados. Seu trabalho teve grande impacto no avanço da tecnologia, especialmente ao defender que a programação deveria ser mais simples e acessível. Entre suas contribuições mais marcantes está a criação de um dos primeiros compiladores e a influência direta no desenvolvimento do COBOL.")
+    st.write(
+        "Grace Hopper foi uma das figuras mais importantes da história da informática, "
+        "destacando-se como cientista da computação, oficial da Marinha dos Estados Unidos "
+        "e uma das principais responsáveis por transformar a forma como os computadores passaram a ser programados. "
+        "Seu trabalho teve grande impacto no avanço da tecnologia, especialmente ao defender que a programação deveria ser mais simples e acessível. "
+        "Entre suas contribuições mais marcantes está a criação de um dos primeiros compiladores e a influência direta no desenvolvimento do COBOL."
+    )
 
     if st.button("Iniciar Quiz"):
         st.session_state.pagina = "quiz"
-        st.session_state.mostrar_resultado = False
-        st.session_state.acertou = False
 
 # ---------------- QUIZ ----------------
 elif st.session_state.pagina == "quiz":
@@ -99,25 +103,23 @@ elif st.session_state.pagina == "quiz":
         format_func=lambda x: f"{x.upper()}) {q['opcoes'][x]}"
     )
 
-    # Mostrar botão Responder somente se ainda não respondeu
+    # Se o usuário ainda não respondeu, mostra o botão Responder
     if not st.session_state.mostrar_resultado:
         if st.button("Responder"):
             st.session_state.mostrar_resultado = True
-            if resposta == q["correta"]:
-                st.session_state.acertou = True
+            st.session_state.acertou = resposta == q["correta"]
+            if st.session_state.acertou:
                 st.session_state.total += 10
-            else:
-                st.session_state.acertou = False
 
-    # Exibir resultado da questão
+    # Exibe resultado após responder
     if st.session_state.mostrar_resultado:
         if st.session_state.acertou:
             st.success("Você acertou!")
         else:
             st.warning("Resposta errada.")
             st.info(f"A resposta correta é: {q['correta'].upper()}) {q['opcoes'][q['correta']]}")
-        
-        # Botão Próxima questão
+
+        # Botão para avançar para a próxima questão
         if st.button("Próxima questão"):
             st.session_state.q_atual += 1
             st.session_state.mostrar_resultado = False
@@ -143,6 +145,3 @@ elif st.session_state.pagina == "resultado":
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.experimental_rerun()
-
-
-
