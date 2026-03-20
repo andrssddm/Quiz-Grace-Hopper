@@ -85,7 +85,6 @@ if st.session_state.pagina == "inicio":
         st.session_state.pagina = "quiz"
         st.session_state.mostrar_resultado = False
         st.session_state.acertou = False
-        st.session_state()
 
 # ---------------- QUIZ ----------------
 elif st.session_state.pagina == "quiz":
