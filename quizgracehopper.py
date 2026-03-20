@@ -98,29 +98,33 @@ elif st.session_state.pagina == "quiz":
     st.write(q["pergunta"])
     resposta = st.radio("Escolha uma opção:", list(q["opcoes"].keys()),
                         format_func=lambda x: f"{x.upper()}) {q['opcoes'][x]}")
+    
     if st.button("Responder"):
         if resposta == q["correta"]:
             if st.session_state.tentativas == 1:
-                st.success(f"Parabéns! Você acertou de primeira! Conquistou {st.session_state.pontos} pontos!")
+                st.success(f"🎉 Parabéns! Você acertou de primeira! Conquistou {st.session_state.pontos} pontos!")
             else:
                 st.session_state.pontos -= 5
-                st.success(f"Você acertou na {st.session_state.tentativas}ª tentativa! Conquistou {st.session_state.pontos} pontos!")
+                st.success(f"⚡ Você acertou na {st.session_state.tentativas}ª tentativa! Conquistou {st.session_state.pontos} pontos!")
+            
             st.session_state.total += st.session_state.pontos
             st.session_state.pontos = 10
             st.session_state.tentativas = 1
             st.session_state.q_atual += 1
+            
             if st.session_state.q_atual >= len(questoes):
                 st.session_state.pagina = "resultado"
             st.rerun()
         else:
             if st.session_state.tentativas < TENTATIVAS:
-                st.warning("Resposta errada. Tente novamente!")
+                st.warning("❌ Resposta errada. Tente novamente!")
                 st.session_state.tentativas += 1
             else:
-                st.error(f"Resposta errada. A alternativa correta era letra {q['correta'].upper()}.")
+                st.error(f"❌ Resposta errada. A alternativa correta era letra {q['correta'].upper()}.")
                 st.session_state.tentativas = 1
                 st.session_state.pontos = 10
                 st.session_state.q_atual += 1
+                
                 if st.session_state.q_atual >= len(questoes):
                     st.session_state.pagina = "resultado"
                 st.rerun()
@@ -129,14 +133,15 @@ elif st.session_state.pagina == "quiz":
 elif st.session_state.pagina == "resultado":
     st.title("Resultado Final")
     st.write(f"Pontuação total: {st.session_state.total}")
+    
     if st.session_state.total >= 80:
-        st.success("Parabéns! Você demonstrou um excelente conhecimento sobre Grace Hopper e sua importância para a história da computação. Suas respostas mostram que você realmente entende o impacto dela no desenvolvimento da tecnologia. Continue explorando a história da informática!")
+        st.success("🎉 Parabéns! Excelente conhecimento sobre Grace Hopper!")
     elif st.session_state.total >= 50:
-        st.info("Você foi muito bem no quiz! Mostrou que já conhece grande parte da trajetória de Grace Hopper e suas contribuições para a programação. Com um pouco mais de estudo, você chega ao nível máximo! Parabéns pela conquista!")
+        st.info("👏 Muito bem! Você já conhece grande parte da trajetória de Grace Hopper!")
     elif st.session_state.total >= 20:
-        st.warning("Você está no caminho certo! Já conhece alguns fatos importantes sobre Grace Hopper, mas ainda pode aprender mais sobre a história dela e sua influência na computação moderna. Continue praticando!")
+        st.warning("⚠️ Está no caminho certo! Continue praticando!")
     else:
-        st.error("Não se preocupe! Esse quiz é uma ótima oportunidade para conhecer melhor quem foi Grace Hopper e como ela ajudou a transformar a programação e os computadores. Estude mais e tente novamente para ver a sua evolução!")
+        st.error("❌ Não se preocupe! Estude mais e tente novamente!")
 
     if st.button("Reiniciar Quiz"):
         for key in st.session_state.keys():
