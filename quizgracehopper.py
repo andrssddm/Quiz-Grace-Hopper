@@ -121,7 +121,7 @@ questoes = [
 if st.session_state.pagina == "inicio":
     st.title("GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.")
     st.write("Seja bem-vindo ao quiz!")
-    st.write("Grace Hopper foi uma das figuras mais importantes da história da informática, destacando-se como cientista da computação, oficial da Marinha dos Estados Unidos e uma das principais responsáveis por transformar a forma como os computadores passaram a ser programados. Seu trabalho teve grande impacto no avanço da tecnologia, especialmente ao defender que a programação deveria ser mais simples e acessível. Entre suas contribuições mais marcantes está a criação de um dos primeiros compiladores, ferramenta capaz de traduzir comandos escritos em linguagem próxima da humana para a linguagem das máquinas. Além disso, ela influenciou diretamente o desenvolvimento do COBOL, linguagem amplamente utilizada em sistemas comerciais e administrativos, consolidando seu legado como uma das pioneiras da computação moderna.")
+    st.write("Grace Hopper foi uma das figuras mais importantes da informática, atuando como cientista da computação, oficial da Marinha dos Estados Unidos e ajudando a transformar a forma de programar. Desenvolvendo um dos primeiros compiladores e influenciando a criação de linguagens mais acessíveis, como o COBOL.")
 
     if st.button("Iniciar Quiz"):
         st.session_state.pagina = "quiz"
