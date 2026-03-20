@@ -1,11 +1,37 @@
 import streamlit as st
 
-# 🎨 FUNDO BRANCO E TEXTO ROSA
+# 🎨 CSS personalizado: fundo branco, texto rosa claro, quadrados rosa
 st.markdown("""
 <style>
+/* Fundo geral da página */
 .stApp {
     background-color: white;
-    color: #ff1493;  /* rosa claro */
+    color: #FFB6C1;  /* rosa claro */
+}
+
+/* Títulos e textos */
+h1, h2, h3, h4, h5, h6, p, div {
+    color: #FFB6C1;
+}
+
+/* Radio buttons, checkboxes, e caixas de input */
+.css-1v3fvcr, .stRadio, .stCheckbox, .stTextInput > div > div {
+    background-color: #FFC0CB !important; /* rosa */
+    border-radius: 10px;
+}
+
+/* Botões */
+.stButton>button {
+    background-color: #FFC0CB;
+    color: white;
+    font-weight: bold;
+}
+
+/* Mensagens de sucesso, erro, warning e info */
+.stAlert {
+    background-color: #FFC0CB !important;
+    color: #FFB6C1 !important;
+    border-radius: 10px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -35,7 +61,7 @@ questoes = [
         },
         "correta": "d"
     },
-    # ... resto das questões permanece igual
+    # ... resto das questões ...
 ]
 
 # ---------------- TELA INICIAL ----------------
