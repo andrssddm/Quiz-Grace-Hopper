@@ -3,10 +3,10 @@ import streamlit as st
 # ---------------- CSS PERSONALIZADO ----------------
 st.markdown("""
 <style>
-/* Fundo da página e texto principal */
+/* Fundo da página e texto em quadrado */
 .stApp {
     background-color: white;
-    color: #FF3399;  /* rosa médio */
+    color: #FF3399;  /* rosa roxo */
 }
 
 /* Títulos e textos */
