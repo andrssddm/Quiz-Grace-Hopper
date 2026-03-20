@@ -108,7 +108,6 @@ elif st.session_state.pagina == "quiz":
                 st.session_state.total += 10
             else:
                 st.session_state.acertou = False
-                st.experimental_rerun()
 
     # Exibir resultado da questão
     if st.session_state.mostrar_resultado:
