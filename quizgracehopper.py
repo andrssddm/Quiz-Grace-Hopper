@@ -17,25 +17,33 @@ h1, h2, h3, h4, h5, h6, p, div {
 /* Botões */
 .stButton>button {
     background-color: #9933FF !important;
-    color: white !important;
+    color: white !important;  /* letras brancas */
     font-weight: bold;
     border-radius: 8px;
 }
 
-/* Radio buttons, checkboxes e inputs */
-.stRadio, .stCheckbox, .stTextInput>div>div {
+/* Radio buttons e checkboxes */
+.stRadio, .stCheckbox {
     background-color: #9933FF !important;
-    color: white !important;
+    color: white !important;  /* letras brancas */
     border-radius: 8px;
     padding: 5px;
 }
 
-/* Mensagens de sucesso, erro, info e warning */
+/* Mensagens de alerta (sucesso, erro, info, warning) */
 .stAlert {
     background-color: #9933FF !important;
-    color: white !important;
+    color: white !important;  /* letras brancas */
     border-radius: 8px;
     padding: 10px;
+}
+
+/* Inputs de texto (se houver) */
+.stTextInput>div>div {
+    background-color: #9933FF !important;
+    color: white !important;  /* letras brancas */
+    border-radius: 8px;
+    padding: 5px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -64,7 +72,7 @@ questoes = [
         },
         "correta": "d"
     },
-    # Adicione as outras questões aqui...
+    # Continue adicionando as demais questões
 ]
 
 # ---------------- TELA INICIAL ----------------
