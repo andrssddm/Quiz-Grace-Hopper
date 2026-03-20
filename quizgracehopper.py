@@ -5,7 +5,7 @@ st.markdown("""
 <style>
 .stApp {
     background-color: white;
-    color: #ff1493;  /* rosa vivo */
+    color: #ff1493;  /* rosa claro */
 }
 </style>
 """, unsafe_allow_html=True)
