@@ -124,7 +124,6 @@ elif st.session_state.pagina == "quiz":
             st.session_state.acertou = False
             if st.session_state.q_atual >= len(questoes):
                 st.session_state.pagina = "resultado"
-                st.experimental_rerun()
 
 # ---------------- RESULTADO FINAL ----------------
 elif st.session_state.pagina == "resultado":
