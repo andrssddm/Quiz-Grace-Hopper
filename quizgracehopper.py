@@ -8,7 +8,8 @@ if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
     st.session_state.q_atual = 0
     st.session_state.total = 0
-    st.session_state.mostrar_resultado = False  # controla se a mensagem de acerto/erro aparece
+    st.session_state.mostrar_resultado = False
+    st.session_state.acertou = False
 
 # Banco de questões
 questoes = [
@@ -83,6 +84,7 @@ if st.session_state.pagina == "inicio":
     if st.button("Iniciar Quiz"):
         st.session_state.pagina = "quiz"
         st.session_state.mostrar_resultado = False
+        st.session_state.acertou = False
         st.experimental_rerun()
 
 # ---------------- QUIZ ----------------
@@ -119,6 +121,7 @@ elif st.session_state.pagina == "quiz":
         if st.button("Próxima questão"):
             st.session_state.q_atual += 1
             st.session_state.mostrar_resultado = False
+            st.session_state.acertou = False
             if st.session_state.q_atual >= len(questoes):
                 st.session_state.pagina = "resultado"
             st.experimental_rerun()
@@ -138,6 +141,6 @@ elif st.session_state.pagina == "resultado":
         st.error("Não se preocupe! Estude mais e tente novamente.")
 
     if st.button("Reiniciar Quiz"):
-        for key in st.session_state.keys():
+        for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.experimental_rerun()
