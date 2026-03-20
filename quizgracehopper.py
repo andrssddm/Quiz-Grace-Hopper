@@ -119,8 +119,8 @@ questoes = [
 
 # ---------------- TELA INICIAL ----------------
 if st.session_state.pagina == "inicio":
-    st.title("INSERIR TÍTULO AQUI")
-    st.write("Bem-vindo ao quiz sobre Grace Hopper!")
+    st.title("GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.")
+    st.write("Seja bem-vindo ao quiz!")
 
     if st.button("Iniciar Quiz"):
         st.session_state.pagina = "quiz"
