@@ -99,18 +99,16 @@ elif st.session_state.pagina == "quiz":
         format_func=lambda x: f"{x.upper()}) {q['opcoes'][x]}"
     )
 
-    # Mostrar botão Responder somente se ainda não respondeu
-    if not st.session_state.mostrar_resultado:
-        if st.button("Responder"):
-            st.session_state.mostrar_resultado = True
-            if resposta == q["correta"]:
-                st.session_state.acertou = True
-                st.session_state.total += 10
-            else:
-                st.session_state.acertou = False
-            st.experimental_rerun()
+    # Botão Responder
+    if st.button("Responder"):
+        st.session_state.mostrar_resultado = True
+        if resposta == q["correta"]:
+            st.session_state.acertou = True
+            st.session_state.total += 10
+        else:
+            st.session_state.acertou = False
 
-    # Exibir resultado da questão
+    # Mostra resultado da questão
     if st.session_state.mostrar_resultado:
         if st.session_state.acertou:
             st.success("Você acertou!")
@@ -125,7 +123,6 @@ elif st.session_state.pagina == "quiz":
             st.session_state.acertou = False
             if st.session_state.q_atual >= len(questoes):
                 st.session_state.pagina = "resultado"
-            st.experimental_rerun()
 
 # ---------------- RESULTADO FINAL ----------------
 elif st.session_state.pagina == "resultado":
