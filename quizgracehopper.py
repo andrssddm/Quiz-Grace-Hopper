@@ -101,7 +101,7 @@ elif st.session_state.pagina == "quiz":
     if st.button("Responder"):
         if resposta == q["correta"]:
             if st.session_state.tentativas == 1:
-                st.success(f"Você acertou de primeira e conquistou {st.session_state.pontos} pontos!")
+                st.success(f"Parabéns! Você acertou de primeira! Conquistou {st.session_state.pontos} pontos!")
             else:
                 st.session_state.pontos -= 5
                 st.success(f"Você acertou na {st.session_state.tentativas}ª tentativa! Conquistou {st.session_state.pontos} pontos!")
