@@ -30,30 +30,6 @@ st.markdown(
         background-color: #f7c7d8;
     }
 
-    div[data-baseweb="notification"] {
-        border-radius: 10px;
-    }
-
-    div[data-baseweb="notification"][kind="warning"] {
-        background-color: #CF7486 !important;
-        color: white !important;
-    }
-
-    div[data-baseweb="notification"][kind="success"] {
-        background-color: #D8F3DC !important;
-        color: #2D6A4F !important;
-    }
-
-    div[data-baseweb="notification"][kind="error"] {
-        background-color: #E5989B !important;
-        color: white !important;
-    }
-
-    div[data-baseweb="notification"][kind="info"] {
-        background-color: #FBD9E5 !important;
-        color: #C43670 !important;
-    }
-
     /* Alternativas */
     div[role="radiogroup"] label {
         color: #C43670 !important;
