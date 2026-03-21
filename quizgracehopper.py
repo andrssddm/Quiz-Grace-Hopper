@@ -178,7 +178,7 @@ if st.session_state.pagina == "inicio":
             unsafe_allow_html=True
         )
 
-        st.image("gracehopper.png", width=250)
+        st.image("gracehopper.jpg", width=250)
 
         st.markdown("</div>", unsafe_allow_html=True)
     st.write("Seja bem-vindo ao quiz!")
