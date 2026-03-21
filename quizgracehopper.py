@@ -30,7 +30,6 @@ st.markdown(
         background-color: #f7c7d8;
     }
 
-    /* Warning */
     div[data-baseweb="notification"] {
         border-radius: 10px;
     }
@@ -54,11 +53,20 @@ st.markdown(
         background-color: #FBD9E5 !important;
         color: #C43670 !important;
     }
+
+    /* Alternativas */
+    div[role="radiogroup"] label {
+        color: #C43670 !important;
+    }
+
+    div[role="radiogroup"] input:checked + div {
+        background-color: #C43670 !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Inicialização do estado
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
