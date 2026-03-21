@@ -178,16 +178,8 @@ if st.session_state.pagina == "inicio":
 elif st.session_state.pagina == "quiz":
     q = questoes[st.session_state.q_atual]
 
-    st.markdown(
-        f"<h2 style='font-family: Playfair Display; color:#C43670;'>Questão {st.session_state.q_atual + 1}</h2>",
-        unsafe_allow_html=True
-    )
-
     st.subheader(f"Questão {st.session_state.q_atual + 1}")
-    st.markdown(
-    f"<h3 style='color:#C43670;'>{q['pergunta']}</h3>",
-    unsafe_allow_html=True
-)
+    st.write(q["pergunta"])
 
     resposta = st.radio("Escolha uma opção:", list(q["opcoes"].keys()),
                         format_func=lambda x: f"{x.upper()}) {q['opcoes'][x]}")
