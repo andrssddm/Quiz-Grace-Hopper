@@ -4,6 +4,48 @@ import time  # Importado para permitir a pausa na tela
 # Configuração inicial
 st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
 
+# --- ADICIONADO: CSS Customizado com a paleta da imagem ---
+# As cores foram extraídas da imagem enviada para criar harmonia.
+st.markdown("""
+    <style>
+    /* 1. Mudar o fundo da página inteira para o tom rosa seco claro */
+    .stApp {
+        background-color: #E6D8D4;
+    }
+
+    /* 2. Estilizar títulos, subtítulos e textos principais */
+    h1, h2, h3, p, span {
+        color: #8C565F !important; /* Rosa seco mais escuro da paleta */
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    /* 3. Estilizar os radio buttons (opções de resposta) */
+    div[data-testid="stRadio"] label {
+        color: #8C565F !important;
+        font-weight: bold;
+    }
+
+    /* 4. Estilizar os botões (Responder, Iniciar, Reiniciar) */
+    div.stButton > button:first-child {
+        background-color: #A97A81; /* Rosa médio terroso */
+        color: white;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 24px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    /* Efeito ao passar o mouse nos botões */
+    div.stButton > button:first-child:hover {
+        background-color: #8C565F; /* Rosa mais escuro ao passar o mouse */
+        color: white;
+        transform: scale(1.05); /* Leve aumento */
+    }
+    </style>
+    """, unsafe_allow_code=True)
+# --------------------------------------------------------
+
 # Inicialização do estado
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
@@ -122,7 +164,7 @@ questoes = [
 if st.session_state.pagina == "inicio":
     st.title("GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.")
     st.write("Seja bem-vindo ao quiz!")
-    st.write("Grace Hopper foi uma das figuras mais importantes da informática, atuando como cientista da computação, oficial da Marinha dos Estados Unidos e ajudando a transformar a forma de programar. Desenvolvendo um dos primeiros compiladores e influenciando a criação de linguagens mais acessíveis, como o COBOL.")
+    st.write("Grace Hopper foi uma das figuras mais importantes da história da informática, destacando-se como cientista da computação, oficial da Marinha dos Estados Unidos e uma das principais responsáveis por transformar a forma como os computadores passaram a ser programados. Seu trabalho teve grande impacto no avanço da tecnologia, especialmente ao defender que a programação deveria ser mais simples e acessível. Entre suas contribuições mais marcantes está a criação de um dos primeiros compiladores, ferramenta capaz de traduzir comandos escritos em linguagem próxima da humana para a linguagem das máquinas. Além disso, ela influenciou diretamente o desenvolvimento do COBOL, linguagem amplamente utilizada em sistemas comerciais e administrativos, consolidando seu legado como uma das pioneiras da computação moderna.")
 
     if st.button("Iniciar Quiz"):
         st.session_state.pagina = "quiz"
@@ -183,13 +225,13 @@ elif st.session_state.pagina == "resultado":
     st.write(f"Pontuação total: {st.session_state.total}")
 
     if st.session_state.total >= 80:
-        st.success("Parabéns! Você mostrou um ótimo conhecimento sobre Grace Hopper e sua importância na história da computação. Continue explorando a informática!")
+        st.success("Parabéns! Você demonstrou um excelente conhecimento sobre Grace Hopper e sua importância para a história da computação. Suas respostas mostram que você realmente entende o impacto dela no desenvolvimento da tecnologia. Continue explorando a história da informática!")
     elif st.session_state.total >= 50:
-        st.info("Você foi muito bem no quiz! Já conhece grande parte da trajetória de Grace Hopper. Estude mais um pouco e chega ao nível máximo. Parabéns pela conquista!")
+        st.info("Você foi muito bem no quiz! Mostrou que já conhece grande parte da trajetória de Grace Hopper e suas contribuições para a programação. Com um pouco mais de estudo, você chega ao nível máximo! Parabéns pela conquista!")
     elif st.session_state.total >= 20:
-        st.warning("Você está no caminho certo! Já tens conhecimento sobre fatos importantes de Grace Hopper na história da informática, mas ainda pode aprender mais. Continue praticando!")
+        st.warning("Você está no caminho certo! Já conhece alguns fatos importantes sobre Grace Hopper, mas ainda pode aprender mais sobre a história dela e sua influência na computação moderna. Continue praticando!")
     else:
-        st.error("Não se preocupe! Esse quiz é uma ótima forma de aprender sobre Grace Hopper e sua contribuição para a programação. Estude mais e tente novamente para ver sua evolução!")
+        st.error("Não se preocupe! Esse quiz é uma ótima oportunidade para conhecer melhor quem foi Grace Hopper e como ela ajudou a transformar a programação e os computadores. Estude mais e tente novamente para ver a sua evolução!")
 
     if st.button("Reiniciar Quiz"):
         for key in list(st.session_state.keys()):
