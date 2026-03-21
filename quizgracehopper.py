@@ -9,6 +9,11 @@ st.markdown(
     <style>
     .stApp {
         background-color: #FFFFFF;
+        color: #C43670;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, div, label {
+        color: #C43670 !important;
     }
     </style>
     """,
