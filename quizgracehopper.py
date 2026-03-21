@@ -4,6 +4,7 @@ import time  # Importado para permitir a pausa na tela
 # Configuração inicial
 st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
 
+# Estilos da página
 st.markdown(
     """
     <style>
@@ -29,11 +30,16 @@ st.markdown(
         background-color: #f7c7d8;
         color: #C43670;
     }
+
+    div[data-baseweb="notification"] {
+        background-color: #FBD9E5 !important;
+        color: #C43670 !important;
+        border-radius: 10px;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Inicialização do estado
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
