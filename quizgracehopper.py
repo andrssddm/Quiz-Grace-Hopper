@@ -171,16 +171,7 @@ if st.session_state.pagina == "inicio":
     col1, col2, col3 = st.columns([1,2,1])
 
     with col2:
-        st.markdown(
-            """
-            <div style='text-align:center; border:3px solid #FBD9E5; border-radius:15px; padding:10px;'>
-            """,
-            unsafe_allow_html=True
-        )
-
-        st.image("gracehopper.jpg", width=250)
-
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.image("gracehopper.png", width=250)
     st.write("Seja bem-vindo ao quiz!")
     st.write("Grace Hopper foi uma das figuras mais importantes da informática, atuando como cientista da computação, oficial da Marinha dos Estados Unidos e ajudando a transformar a forma de programar. Desenvolvendo um dos primeiros compiladores e influenciando a criação de linguagens mais acessíveis, como o COBOL.")
 
