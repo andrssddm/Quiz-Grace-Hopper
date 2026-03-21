@@ -9,22 +9,8 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url("gracehopper.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background-color: #FFFFFF;
         color: #C43670;
-    }
-
-    .stApp::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255,255,255,0.80);
-        z-index: -1;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
