@@ -4,17 +4,6 @@ import time  # Importado para permitir a pausa na tela
 # Configuração inicial
 st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
 
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #FBF4EB;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Inicialização do estado
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
@@ -133,10 +122,6 @@ questoes = [
 if st.session_state.pagina == "inicio":
     st.markdown(
     "<h1 style='color:#C43670;'>GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.</h1>",
-    unsafe_allow_html=True
-)
-    unsafe_allow_html=True
-)
     unsafe_allow_html=True
 )
     st.write("Seja bem-vindo ao quiz!")
