@@ -1,22 +1,8 @@
 import streamlit as st
-import time
+import time  # Importado para permitir a pausa na tela
 
 # Configuração inicial
 st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
-
-# --- COMANDO PARA FUNDO BRANCO ---
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #FFFFFF;
-    }
-    </style>
-    """,
-    unsafe_allow_stdio=True,
-    unsafe_allow_html=True
-)
-# --------------------------------
 
 # Inicialização do estado
 if "pagina" not in st.session_state:
@@ -28,7 +14,7 @@ if "pagina" not in st.session_state:
 
 TENTATIVAS = 2
 
-# Banco de questões
+# Banco de questões (Mantido conforme seu original)
 questoes = [
     {
         "pergunta": "A importância de Grace Hopper está relacionada principalmente ao fato de ela ter:",
@@ -81,7 +67,7 @@ questoes = [
         "correta": "a"
     },
     {
-        "pergunta": "A influência de Grace Hopper se deu:",
+        "pergunta": "A transformação promovida por Grace Hopper permitiu:",
         "opcoes": {
             "a": "Apenas na área militar.",
             "b": "Apenas na construção de hardware.",
@@ -154,6 +140,7 @@ elif st.session_state.pagina == "quiz":
 
     if st.button("Responder"):
         if resposta == q["correta"]:
+            # LOGICA DE ACERTO ADICIONADA AQUI
             st.balloons()
             if st.session_state.tentativas == 1:
                 st.success("Parabéns, você acertou a questão! +10 pontos")
@@ -161,6 +148,7 @@ elif st.session_state.pagina == "quiz":
                 st.session_state.pontos -= 5
                 st.success(f"Parabéns, você acertou a questão! Acertou na {st.session_state.tentativas}ª tentativa! +{st.session_state.pontos} pontos")
             
+            # Pausa para o usuário ler a mensagem de sucesso
             time.sleep(2)
 
             st.session_state.total += st.session_state.pontos
@@ -179,7 +167,7 @@ elif st.session_state.pagina == "quiz":
                 st.session_state.tentativas += 1
             else:
                 st.error(f"Resposta errada. A correta era: {q['correta'].upper()}")
-                time.sleep(2)
+                time.sleep(2) # Pausa para o usuário ver qual era a correta
                 st.session_state.tentativas = 1
                 st.session_state.pontos = 10
                 st.session_state.q_atual += 1
