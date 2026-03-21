@@ -28,18 +28,37 @@ st.markdown(
 
     div.stButton > button:hover {
         background-color: #f7c7d8;
-        color: #C43670;
     }
 
+    /* Warning */
     div[data-baseweb="notification"] {
+        border-radius: 10px;
+    }
+
+    div[data-baseweb="notification"][kind="warning"] {
+        background-color: #CF7486 !important;
+        color: white !important;
+    }
+
+    div[data-baseweb="notification"][kind="success"] {
+        background-color: #D8F3DC !important;
+        color: #2D6A4F !important;
+    }
+
+    div[data-baseweb="notification"][kind="error"] {
+        background-color: #E5989B !important;
+        color: white !important;
+    }
+
+    div[data-baseweb="notification"][kind="info"] {
         background-color: #FBD9E5 !important;
         color: #C43670 !important;
-        border-radius: 10px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 # Inicialização do estado
 if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
