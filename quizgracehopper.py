@@ -132,7 +132,9 @@ questoes = [
 # ---------------- TELA INICIAL ----------------
 if st.session_state.pagina == "inicio":
     st.markdown(
-    "<h1 style='color:#C43670; text-align:center;'>GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.</h1>",
+    "<h1 style='color:#C43670;'>GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.</h1>",
+    unsafe_allow_html=True
+)
     unsafe_allow_html=True
 )
     unsafe_allow_html=True
