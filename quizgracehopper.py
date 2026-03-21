@@ -167,6 +167,7 @@ if st.session_state.pagina == "inicio":
     "<h1 style='color:#C43670;'>GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.</h1>",
     unsafe_allow_html=True
 )
+    st.image("gracehopper.jpg", width=250)
     st.write("Seja bem-vindo ao quiz!")
     st.write("Grace Hopper foi uma das figuras mais importantes da informática, atuando como cientista da computação, oficial da Marinha dos Estados Unidos e ajudando a transformar a forma de programar. Desenvolvendo um dos primeiros compiladores e influenciando a criação de linguagens mais acessíveis, como o COBOL.")
 
