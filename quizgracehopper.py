@@ -184,9 +184,10 @@ elif st.session_state.pagina == "quiz":
     )
 
     st.markdown(
-        f"<h2 style='color:#C43670;'>{q['pergunta']}</h2>",
+        f"<h3 style='color:#C43670;'>{q['pergunta']}</h3>",
         unsafe_allow_html=True
     )
+    
     resposta = st.radio("Escolha uma opção:", list(q["opcoes"].keys()),
                         format_func=lambda x: f"{x.upper()}) {q['opcoes'][x]}")
 
