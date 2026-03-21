@@ -183,13 +183,13 @@ elif st.session_state.pagina == "resultado":
     st.write(f"Pontuação total: {st.session_state.total}")
 
     if st.session_state.total >= 80:
-        st.success("Parabéns! Você demonstrou um excelente conhecimento sobre Grace Hopper...")
+        st.success("Parabéns! Você mostrou um ótimo conhecimento sobre Grace Hopper e sua importância na história da computação. Continue explorando a informática!")
     elif st.session_state.total >= 50:
-        st.info("Você foi muito bem no quiz!...")
+        st.info("Você foi muito bem no quiz! Já conhece grande parte da trajetória de Grace Hopper. Estude mais um pouco e chega ao nível máximo. Parabéns pela conquista!")
     elif st.session_state.total >= 20:
-        st.warning("Você está no caminho certo!...")
+        st.warning("Você está no caminho certo! Já tens conhecimento sobre fatos importantes de Grace Hopper na história da informática, mas ainda pode aprender mais. Continue praticando!")
     else:
-        st.error("Não se preocupe!...")
+        st.error("Não se preocupe! Esse quiz é uma ótima forma de aprender sobre Grace Hopper e sua contribuição para a programação. Estude mais e tente novamente para ver sua evolução!")
 
     if st.button("Reiniciar Quiz"):
         for key in list(st.session_state.keys()):
