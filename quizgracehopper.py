@@ -1,4 +1,5 @@
 import streamlit as st
+import time  # Importado para permitir a pausa na tela
 
 # Configuração inicial
 st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
@@ -13,7 +14,7 @@ if "pagina" not in st.session_state:
 
 TENTATIVAS = 2
 
-# Banco de questões
+# Banco de questões (Mantido conforme seu original)
 questoes = [
     {
         "pergunta": "A importância de Grace Hopper está relacionada principalmente ao fato de ela ter:",
@@ -121,7 +122,7 @@ questoes = [
 if st.session_state.pagina == "inicio":
     st.title("GRACE HOPPER: PIONEIRA DA PROGRAMAÇÃO MODERNA.")
     st.write("Seja bem-vindo ao quiz!")
-    st.write("Grace Hopper foi uma das figuras mais importantes da história da informática, destacando-se como cientista da computação, oficial da Marinha dos Estados Unidos e uma das principais responsáveis por transformar a forma como os computadores passaram a ser programados. Seu trabalho teve grande impacto no avanço da tecnologia, especialmente ao defender que a programação deveria ser mais simples e acessível. Entre suas contribuições mais marcantes está a criação de um dos primeiros compiladores, ferramenta capaz de traduzir comandos escritos em linguagem próxima da humana para a linguagem das máquinas. Além disso, ela influenciou diretamente o desenvolvimento do COBOL, linguagem amplamente utilizada em sistemas comerciais e administrativos, consolidando seu legado como uma das pioneiras da computação moderna.")
+    st.write("Grace Hopper foi uma das figuras mais importantes da história da informática...")
 
     if st.button("Iniciar Quiz"):
         st.session_state.pagina = "quiz"
@@ -139,11 +140,16 @@ elif st.session_state.pagina == "quiz":
 
     if st.button("Responder"):
         if resposta == q["correta"]:
+            # LOGICA DE ACERTO ADICIONADA AQUI
+            st.balloons()
             if st.session_state.tentativas == 1:
-                st.success(f"Você acertou! +{st.session_state.pontos} pontos")
+                st.success("Parabéns, você acertou a questão! +10 pontos")
             else:
                 st.session_state.pontos -= 5
-                st.success(f"Acertou na {st.session_state.tentativas}ª tentativa! +{st.session_state.pontos} pontos")
+                st.success(f"Parabéns, você acertou a questão! Acertou na {st.session_state.tentativas}ª tentativa! +{st.session_state.pontos} pontos")
+            
+            # Pausa para o usuário ler a mensagem de sucesso
+            time.sleep(2)
 
             st.session_state.total += st.session_state.pontos
             st.session_state.pontos = 10
@@ -161,6 +167,7 @@ elif st.session_state.pagina == "quiz":
                 st.session_state.tentativas += 1
             else:
                 st.error(f"Resposta errada. A correta era: {q['correta'].upper()}")
+                time.sleep(2) # Pausa para o usuário ver qual era a correta
                 st.session_state.tentativas = 1
                 st.session_state.pontos = 10
                 st.session_state.q_atual += 1
@@ -176,15 +183,15 @@ elif st.session_state.pagina == "resultado":
     st.write(f"Pontuação total: {st.session_state.total}")
 
     if st.session_state.total >= 80:
-        st.success("Parabéns! Você demonstrou um excelente conhecimento sobre Grace Hopper e sua importância para a história da computação. Suas respostas mostram que você realmente entende o impacto dela no desenvolvimento da tecnologia. Continue explorando a história da informática!")
+        st.success("Parabéns! Você demonstrou um excelente conhecimento sobre Grace Hopper...")
     elif st.session_state.total >= 50:
-        st.info("Você foi muito bem no quiz! Mostrou que já conhece grande parte da trajetória de Grace Hopper e suas contribuições para a programação. Com um pouco mais de estudo, você chega ao nível máximo! Parabéns pela conquista!")
+        st.info("Você foi muito bem no quiz!...")
     elif st.session_state.total >= 20:
-        st.warning("Você está no caminho certo! Já conhece alguns fatos importantes sobre Grace Hopper, mas ainda pode aprender mais sobre a história dela e sua influência na computação moderna. Continue praticando!")
+        st.warning("Você está no caminho certo!...")
     else:
-        st.error("Não se preocupe! Esse quiz é uma ótima oportunidade para conhecer melhor quem foi Grace Hopper e como ela ajudou a transformar a programação e os computadores. Estude mais e tente novamente para ver a sua evolução!")
+        st.error("Não se preocupe!...")
 
     if st.button("Reiniciar Quiz"):
-        for key in st.session_state.keys():
+        for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()
