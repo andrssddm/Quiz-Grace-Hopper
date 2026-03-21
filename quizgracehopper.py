@@ -15,6 +15,20 @@ st.markdown(
     h1, h2, h3, h4, h5, h6, p, div, label {
         color: #C43670 !important;
     }
+
+    div.stButton > button {
+        background-color: #FBD9E5;
+        color: #C43670;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    div.stButton > button:hover {
+        background-color: #f7c7d8;
+        color: #C43670;
+    }
     </style>
     """,
     unsafe_allow_html=True
