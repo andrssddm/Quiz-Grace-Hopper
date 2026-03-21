@@ -8,12 +8,20 @@ st.set_page_config(page_title="Quiz Grace Hopper", layout="centered")
 st.markdown(
     """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+
     .stApp {
         background-color: #FFFFFF;
         color: #C43670;
     }
 
-    h1, h2, h3, h4, h5, h6, p, div, label {
+    h1 {
+        font-family: 'Playfair Display', serif !important;
+        color: #C43670;
+    }
+
+    h2, h3, h4, h5, h6, p, div, label {
+        font-family: 'Poppins', sans-serif !important;
         color: #C43670 !important;
     }
 
@@ -30,30 +38,10 @@ st.markdown(
         background-color: #f7c7d8;
     }
 
-    /* Warning */
-    div[data-baseweb="notification"] {
-        border-radius: 10px;
-    }
-
-    div[data-baseweb="notification"][kind="warning"] {
-        background-color: #CF7486 !important;
-        color: white !important;
-    }
-
-    div[data-baseweb="notification"][kind="success"] {
-        background-color: #D8F3DC !important;
-        color: #2D6A4F !important;
-    }
-
-    div[data-baseweb="notification"][kind="error"] {
-        background-color: #E5989B !important;
-        color: white !important;
-    }
-
-    div[data-baseweb="notification"][kind="info"] {
-        background-color: #FBD9E5 !important;
+    div[role="radiogroup"] label {
         color: #C43670 !important;
     }
+
     </style>
     """,
     unsafe_allow_html=True
